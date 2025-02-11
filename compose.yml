@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: zzz
+      POSTGRES_PASSWORD: zzz
+      POSTGRES_DB: zzz
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432 # ODBC
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: '1000M'
+
+  # dgraph:
+  #   image: dgraph/standalone:v21.12.0
+  #   restart: unless-stopped
+  #   volumes:
+  #     - dgraph-data:/dgraph
+  #   ports:
+  #     - 9070:8080 # alpha's HTTP-external-public
+  #     - 9080:9080 # alpha's gRPC-external-public
+  # neo4j:
+  #   image: neo4j:5.7.0-community
+  #   restart: unless-stopped
+  #   volumes:
+  #     - neo4j-data:/data
+  #   ports:
+  #     - 7474:7474 # HTTP
+  #     - 7687:7687 # Bolt
+
+volumes:
+  postgres-data: {}
+  # dgraph-data: {}
+  # neo4j-data: {}

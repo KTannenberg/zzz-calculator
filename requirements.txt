@@ -1,0 +1,18 @@
+# generic
+pip-upgrader==1.4.15
+colorlog==6.9.0
+
+# other
+jq==1.8.0
+yq==3.4.3
+
+# database
+psycopg2-binary==2.9.10
+sqlalchemy==2.0.37
+alembic==1.14.1
+
+# models
+pydantic==2.10.6
+
+# ui
+nicegui
